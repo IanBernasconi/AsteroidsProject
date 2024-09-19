@@ -5,12 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+
+    public static int SCORE = 0;
+
     public float thrustForce = 5f;
     public float rotationSpeed = 120f;
 
     public GameObject gun, bulletPrefab;
 
     private Rigidbody _rigid;
+
+    public float fireRate = 0.3f;
+    private float nextFireTime = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,12 +36,14 @@ public class Player : MonoBehaviour
 
         transform.Rotate(Vector3.forward, -rotation * rotationSpeed);
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && Time.time >= nextFireTime)
         {
             GameObject bullet = Instantiate(bulletPrefab, gun.transform.position, Quaternion.identity);
 
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             bulletScript.targetVector = thrustDirection;
+
+            nextFireTime = Time.time + fireRate;
         }
 
 
@@ -45,6 +53,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            SCORE = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
