@@ -23,16 +23,14 @@ public class Bullet : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-            Destroy(collision.gameObject);
-            IncreaseScore();
+    // private void OnCollisionEnter(Collision collision)
+    // {
+    //     if (collision.gameObject.CompareTag("Enemy"))
+    //     {
 
-        }
-    }
+    //         IncreaseScore();
+    //     }
+    // }
 
     private void IncreaseScore()
     {

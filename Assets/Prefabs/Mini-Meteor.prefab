@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &325111198016562474
+--- !u!1 &3529929560996953140
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 524470665120471958}
-  - component: {fileID: 1528602649666910651}
-  - component: {fileID: 7871700515120501043}
-  - component: {fileID: 8068592564392914381}
-  - component: {fileID: 7333706095680947298}
+  - component: {fileID: 1533812303089766107}
+  - component: {fileID: -8163826220624165157}
+  - component: {fileID: 1956799233348060150}
+  - component: {fileID: -342367052817502471}
+  - component: {fileID: -2373187662841989510}
   m_Layer: 0
-  m_Name: Meteor
+  m_Name: Mini-Meteor
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &524470665120471958
+--- !u!4 &1533812303089766107
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325111198016562474}
+  m_GameObject: {fileID: 3529929560996953140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8.1, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalPosition: {x: 0, y: -0.08, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1528602649666910651
+--- !u!212 &-8163826220624165157
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325111198016562474}
+  m_GameObject: {fileID: 3529929560996953140}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -87,13 +87,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!54 &7871700515120501043
+--- !u!114 &1956799233348060150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3529929560996953140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46a3fa73d7c79ab46862717b74fe489f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniAsteroidPrefab: {fileID: 3529929560996953140}
+  separationAngle: 35
+  speed: 10
+  miniAsteroidsToSpawn: 2
+  isMiniAsteroid: 1
+--- !u!54 &-342367052817502471
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325111198016562474}
+  m_GameObject: {fileID: 3529929560996953140}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -109,18 +126,18 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &8068592564392914381
+--- !u!135 &-2373187662841989510
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325111198016562474}
+  m_GameObject: {fileID: 3529929560996953140}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -133,23 +150,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
-  m_Center: {x: -0.3, y: -2, z: 0}
---- !u!114 &7333706095680947298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325111198016562474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46a3fa73d7c79ab46862717b74fe489f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  miniAsteroidPrefab: {fileID: 3529929560996953140, guid: 7b884e86de58aea4281b6887ff8dbdc5,
-    type: 3}
-  separationAngle: 35
-  speed: 10
-  miniAsteroidsToSpawn: 2
-  isMiniAsteroid: 0
+  m_Radius: 0.7
+  m_Center: {x: 0, y: -1, z: 0}

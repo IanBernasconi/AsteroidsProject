@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody _rigid;
 
-    public float fireRate = 0.4f;
+    public float fireRate = 1.3f;
     private float nextFireTime = 0f;
 
     Vector2 thrustDirection;
