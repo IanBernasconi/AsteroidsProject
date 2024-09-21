@@ -6,37 +6,30 @@ using UnityEngine.UI;
 public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
-    public float maxLifeTime = 3f;
+    public float maxLifeTime = 1f;
     public Vector3 targetVector;
 
-    private float lifeTime;
-
-
-    // OnEnable es llamado cada vez que el objeto es activado
-    void OnEnable()
-    {
-        lifeTime = 0f;
-    }
+    private float lifetime = 0f;
 
     // Update is called once per frame
     void Update()
     {
-        lifeTime += Time.deltaTime;
-
+        // Incrementar el tiempo de vida de la bala
+        lifetime += Time.deltaTime;
         // Mueve la bala en la dirección targetVector
         transform.Translate(speed * Time.deltaTime * targetVector);
 
-        // Desactiva la bala cuando su tiempo de vida se acaba
-        if (lifeTime >= maxLifeTime)
-        {
-            gameObject.SetActive(false);
-        }
+        // if (lifetime >= maxLifeTime)
+        // {
+        //     // Desactivar la bala cuando se cumple el tiempo de vida
+        //     gameObject.SetActive(false);
+        // }
     }
 
     private void OnBecameInvisible()
     {
         // Desactivar cuando sale de la pantalla
-        gameObject.SetActive(false);
+        ObjectPool.SharedInstance.ReturnObjectToPool("Bullet", gameObject);
     }
 
 

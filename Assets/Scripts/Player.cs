@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
             // Bullet bulletScript = bullet.GetComponent<Bullet>();
             // bulletScript.targetVector = thrustDirection;
 
-            GameObject bullet = ObjectPool.SharedInstance.GetPooledObject();
+            GameObject bullet = ObjectPool.SharedInstance.GetPooledObject("Bullet");
             if (bullet != null)
             {
                 bullet.transform.SetPositionAndRotation(gun.transform.position, gun.transform.rotation);
@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Asteroid") || collision.gameObject.CompareTag("MiniAsteroid"))
         {
             SCORE = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);

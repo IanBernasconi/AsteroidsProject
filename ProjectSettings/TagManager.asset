@@ -9,6 +9,8 @@ TagManager:
   - Mini-Enemy
   - Bullet
   - Pause_Menu
+  - MiniAsteroid
+  - Asteroid
   layers:
   - Default
   - TransparentFX

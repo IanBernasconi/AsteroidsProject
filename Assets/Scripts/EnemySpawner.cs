@@ -24,9 +24,23 @@ public class EnemySpawner : MonoBehaviour
 
             Vector2 spawnPosition = new Vector2(rand, 8f);
 
-            GameObject meteor = Instantiate(asteroidPrefab, spawnPosition, Quaternion.identity);
+            // GameObject meteor = Instantiate(asteroidPrefab, spawnPosition, Quaternion.identity);
 
-            Destroy(meteor, maxMeteorLife);
+            // GameObject meteor = ObjectPool.SharedInstance.GetPooledObject("Asteroid");
+            // if (meteor != null)
+            // {
+            //     meteor.transform.SetPositionAndRotation(spawnPosition, Quaternion.identity);
+            //     meteor.SetActive(true);
+            //     Debug.Log("Meteor spawning");
+
+            // }
+
+            // Destroy(meteor, maxMeteorLife);
+
+            // if (lifeTime >= maxMeteorLife)
+            // {
+            //     meteor.SetActive(false);
+            // }
         }
     }
 }

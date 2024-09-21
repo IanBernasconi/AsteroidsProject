@@ -18,7 +18,8 @@ public class Asteroid : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
+            // Desactivamos el asteroide en lugar de destruirlo para reutilizarlo en el pool
+            gameObject.SetActive(false);
             // Desactivamos el objeto (bullet) en lugar de destruirlo para reutilizarlo en el pool
             other.gameObject.SetActive(false);
             if (!isMiniAsteroid)
@@ -42,8 +43,21 @@ public class Asteroid : MonoBehaviour
         Vector3 direction1 = rotation1 * bisectriz;
         Vector3 direction2 = rotation2 * bisectriz;
 
-        GameObject miniAsteroid1 = Instantiate(miniAsteroidPrefab, position, Quaternion.identity);
-        GameObject miniAsteroid2 = Instantiate(miniAsteroidPrefab, position + new Vector3(distanceBetweenSpawns, 0, 0), Quaternion.identity);
+        // GameObject miniAsteroid1 = Instantiate(miniAsteroidPrefab, position, Quaternion.identity);
+        GameObject miniAsteroid1 = ObjectPool.SharedInstance.GetPooledObject("MiniAsteroid");
+        if (miniAsteroid1 != null)
+        {
+            miniAsteroid1.transform.position = position;
+            miniAsteroid1.SetActive(true);
+        }
+        // GameObject miniAsteroid2 = Instantiate(miniAsteroidPrefab, position + new Vector3(distanceBetweenSpawns, 0, 0), Quaternion.identity);
+        GameObject miniAsteroid2 = ObjectPool.SharedInstance.GetPooledObject("MiniAsteroid");
+        if (miniAsteroid2 != null)
+        {
+            miniAsteroid2.transform.position = position + new Vector3(distanceBetweenSpawns, 0, 0);
+            miniAsteroid2.SetActive(true);
+        }
+
         miniAsteroid1.GetComponent<Rigidbody>().velocity = direction1 * speed;
         miniAsteroid2.GetComponent<Rigidbody>().velocity = direction2 * speed;
 
@@ -64,6 +78,11 @@ public class Asteroid : MonoBehaviour
     {
         GameObject go = GameObject.FindGameObjectWithTag("UI");
         go.GetComponent<Text>().text = "Score: " + Player.SCORE;
+    }
+
+    private void OnBecameInvisible()
+    {
+        gameObject.SetActive(false);
     }
 
 
