@@ -9,28 +9,36 @@ public class Bullet : MonoBehaviour
     public float maxLifeTime = 3f;
     public Vector3 targetVector;
 
+    private float lifeTime;
 
-    // Start is called before the first frame update
-    void Start()
+
+    // OnEnable es llamado cada vez que el objeto es activado
+    void OnEnable()
     {
-        Destroy(gameObject, maxLifeTime);
+        lifeTime = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        lifeTime += Time.deltaTime;
+
+        // Mueve la bala en la dirección targetVector
         transform.Translate(speed * Time.deltaTime * targetVector);
 
+        // Desactiva la bala cuando su tiempo de vida se acaba
+        if (lifeTime >= maxLifeTime)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
-    // private void OnCollisionEnter(Collision collision)
-    // {
-    //     if (collision.gameObject.CompareTag("Enemy"))
-    //     {
+    private void OnBecameInvisible()
+    {
+        // Desactivar cuando sale de la pantalla
+        gameObject.SetActive(false);
+    }
 
-    //         IncreaseScore();
-    //     }
-    // }
 
     private void IncreaseScore()
     {

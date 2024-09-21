@@ -19,7 +19,8 @@ public class Asteroid : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             Destroy(gameObject);
-            Destroy(other.gameObject);
+            // Desactivamos el objeto (bullet) en lugar de destruirlo para reutilizarlo en el pool
+            other.gameObject.SetActive(false);
             if (!isMiniAsteroid)
             {
                 SpawnMiniAsteroids(other.transform.position);

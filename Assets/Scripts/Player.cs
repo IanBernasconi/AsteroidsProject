@@ -70,10 +70,17 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space) && Time.time >= nextFireTime)
         {
-            GameObject bullet = Instantiate(bulletPrefab, gun.transform.position, Quaternion.identity);
+            // GameObject bullet = Instantiate(bulletPrefab, gun.transform.position, Quaternion.identity);
 
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
-            bulletScript.targetVector = thrustDirection;
+            // Bullet bulletScript = bullet.GetComponent<Bullet>();
+            // bulletScript.targetVector = thrustDirection;
+
+            GameObject bullet = ObjectPool.SharedInstance.GetPooledObject();
+            if (bullet != null)
+            {
+                bullet.transform.SetPositionAndRotation(gun.transform.position, gun.transform.rotation);
+                bullet.SetActive(true);
+            }
 
             nextFireTime = Time.time + fireRate;
         }
