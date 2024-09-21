@@ -78,7 +78,6 @@ public class Player : MonoBehaviour
             nextFireTime = Time.time + fireRate;
         }
 
-
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -22,13 +22,10 @@ public class Asteroid : MonoBehaviour
             Destroy(other.gameObject);
             if (!isMiniAsteroid)
             {
-                Debug.Log("Asteroid destroyed");
                 SpawnMiniAsteroids(other.transform.position);
-                Debug.Log("Mini asteroids spawned");
             }
             else
             {
-                Debug.Log("Mini asteroid destroyed");
                 IncreaseScore();
             }
         }
@@ -36,7 +33,6 @@ public class Asteroid : MonoBehaviour
 
     private void SpawnMiniAsteroids(Vector3 position)
     {
-        // make the negative of the normal
         Vector3 bisectriz = -position.normalized;
 
         Quaternion rotation1 = Quaternion.AngleAxis(separationAngle, Vector3.forward);
