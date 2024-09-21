@@ -410,7 +410,7 @@ MonoBehaviour:
   spawnRatePerMinute: 35
   spawnRateIncrement: 1
   xlimit: 6
-  maxMeteorLife: 4
+  speed: 2
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,8 +774,6 @@ GameObject:
   m_Component:
   - component: {fileID: 978227941}
   - component: {fileID: 978227940}
-  - component: {fileID: 978227943}
-  - component: {fileID: 978227942}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: Untagged
@@ -800,6 +798,13 @@ MonoBehaviour:
     prefab: {fileID: 6679073910992993438, guid: 381890f039cecfe41a8d2f2c05be4f6d,
       type: 3}
     size: 20
+  - tag: Asteroid
+    prefab: {fileID: 325111198016562474, guid: 3d3e9327e089bc746b60a1ed0f80a39a, type: 3}
+    size: 20
+  - tag: MiniAsteroid
+    prefab: {fileID: 3529929560996953140, guid: 7b884e86de58aea4281b6887ff8dbdc5,
+      type: 3}
+    size: 20
 --- !u!4 &978227941
 Transform:
   m_ObjectHideFlags: 0
@@ -815,32 +820,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &978227942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978227939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e6540c79e50d944e934cbfb14a25a8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pools: []
---- !u!114 &978227943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978227939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e6540c79e50d944e934cbfb14a25a8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pools: []
 --- !u!1 &1236458367
 GameObject:
   m_ObjectHideFlags: 0

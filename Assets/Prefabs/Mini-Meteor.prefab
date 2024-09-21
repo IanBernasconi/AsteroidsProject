@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniAsteroidPrefab: {fileID: 3529929560996953140}
   separationAngle: 35
-  speed: 10
+  speed: 2
   miniAsteroidsToSpawn: 2
   isMiniAsteroid: 1
 --- !u!54 &-342367052817502471

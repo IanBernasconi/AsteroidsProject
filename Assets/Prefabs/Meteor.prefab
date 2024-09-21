@@ -109,7 +109,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -150,6 +150,6 @@ MonoBehaviour:
   miniAsteroidPrefab: {fileID: 3529929560996953140, guid: 7b884e86de58aea4281b6887ff8dbdc5,
     type: 3}
   separationAngle: 35
-  speed: 10
+  speed: 3
   miniAsteroidsToSpawn: 2
   isMiniAsteroid: 0

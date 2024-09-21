@@ -9,21 +9,12 @@ public class Bullet : MonoBehaviour
     public float maxLifeTime = 1f;
     public Vector3 targetVector;
 
-    private float lifetime = 0f;
-
     // Update is called once per frame
     void Update()
     {
-        // Incrementar el tiempo de vida de la bala
-        lifetime += Time.deltaTime;
         // Mueve la bala en la dirección targetVector
         transform.Translate(speed * Time.deltaTime * targetVector);
 
-        // if (lifetime >= maxLifeTime)
-        // {
-        //     // Desactivar la bala cuando se cumple el tiempo de vida
-        //     gameObject.SetActive(false);
-        // }
     }
 
     private void OnBecameInvisible()
